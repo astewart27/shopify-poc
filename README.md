@@ -1,5 +1,5 @@
-# Your Project's Title...
-Your project's description...
+# AEM + EDS + Shopify (POC)
+This serves as a Proof of Concept repository with integrations around AEM, Edge Delivery Service and Shopify.
 
 ## Environments
 - Preview: https://main--{repo}--{owner}.hlx.page/
