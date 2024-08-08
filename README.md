@@ -2,8 +2,8 @@
 This serves as a Proof of Concept repository with integrations around AEM, Edge Delivery Service and Shopify.
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--shopify-poc--astewart27.hlx.page/
+- Live: https://main--shopify-poc--astewart27.hlx.live/
 
 ## Installation
 
