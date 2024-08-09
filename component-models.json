@@ -195,5 +195,17 @@
         "label": "Reference"
       }
     ]
+  },
+  {
+    "id": "preact-header",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "value": "",
+        "label": "Title"
+      }
+    ]
   }
 ]
