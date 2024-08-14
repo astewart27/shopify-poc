@@ -1,4 +1,5 @@
-import { render, h } from 'preact';
+import { render } from 'preact';
+// eslint-disable-next-line no-unused-vars
 import { App } from './app.jsx';
 
-render(h(App), document.getElementById('app'));
+render(<App/>, document.getElementById('app'));

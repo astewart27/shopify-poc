@@ -1,11 +1,9 @@
 import {
-  h, Component, Fragment, render
+  h, Component, Fragment, render,
   // eslint-disable-next-line import/no-unresolved,import/extensions
 } from '../../scripts/preact.js';
 // eslint-disable-next-line import/no-unresolved,import/extensions
 import htm from '../../scripts/htm.js';
-//import { h, render } from "preact";
-
 import { PUBLIC_STOREFRONT_API_TOKEN, GRAPHQL_ENDPOINT } from '../../constants/index.js';
 
 const html = htm.bind(h);
@@ -20,8 +18,6 @@ function App() {
 }
 
 const performGraphqlRequest = async () => {
-  console.log('Making request...');
-
   const query = `
     {
       products(first: 10) {
@@ -37,14 +33,14 @@ const performGraphqlRequest = async () => {
 
   const headers = {
     'Content-Type': 'application/json',
-    'X-Shopify-Storefront-Access-Token': PUBLIC_STOREFRONT_API_TOKEN
+    'X-Shopify-Storefront-Access-Token': PUBLIC_STOREFRONT_API_TOKEN,
   };
 
   const response = await fetch(GRAPHQL_ENDPOINT, {
     method: 'POST',
     headers,
     body: JSON.stringify({
-      query: query.replace(/(?:\r\n|\r|\n|\t|[\s]{4})/g, ' ').replace(/\s\s+/g, ' ')
+      query: query.replace(/(?:\r\n|\r|\n|\t|[\s]{4})/g, ' ').replace(/\s\s+/g, ' '),
     }),
   });
 
@@ -56,31 +52,29 @@ const performGraphqlRequest = async () => {
   const products = result.data?.products?.edges;
 
   return products;
-}
+};
 
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      products: []
+      products: [],
     };
   }
 
   async componentDidMount() {
     const products = await performGraphqlRequest();
-    console.log('Request Data', products);
     this.setState({
-      products
+      products,
     });
   }
 
   async componentDidUpdate() {
-    console.log('Component updated...');
+    console.log('Component updated...', this);
   }
 
   render() {
-
     return html`
       <${Fragment} >
         <div class="product-details">
