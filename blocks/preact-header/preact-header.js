@@ -76,7 +76,7 @@ class ProductDetails extends Component {
 
   render() {
     return html`
-      <${Fragment} >
+      <${Fragment}>
         <div class="product-details">
           <h3>Product Details</h3>
           ${this.state.products.length > 0 && this.state.products.map((product) => html`
@@ -91,6 +91,6 @@ class ProductDetails extends Component {
 export default function decorate(block) {
   const app2 = html`<${App}/>`;
   const productDetails = html`<${ProductDetails} />`;
-  render(app2, block.parentElement);
-  render(productDetails, block);
+  //render(app2, block.parentElement);
+  //render(productDetails, block);
 }
