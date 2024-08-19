@@ -91,6 +91,6 @@ class ProductDetails extends Component {
 export default function decorate(block) {
   const app2 = html`<${App}/>`;
   const productDetails = html`<${ProductDetails} />`;
-  //render(app2, block.parentElement);
-  //render(productDetails, block);
+  // render(app2, block.parentElement);
+  // render(productDetails, block);
 }

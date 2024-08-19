@@ -197,7 +197,7 @@
     ]
   },
   {
-    "id": "preact-header",
+    "id": "product-list",
     "fields": [
       {
         "component": "text",
