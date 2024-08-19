@@ -207,8 +207,8 @@
         "label": "Title"
       },
       {
-        "component": "multiselect",
-        "name": "multiselect",
+        "component": "product-list",
+        "name": "product-list",
         "label": "Product List",
         "valueType": "string",
         "options": [
