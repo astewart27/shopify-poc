@@ -8,23 +8,25 @@ import { PUBLIC_STOREFRONT_API_TOKEN, GRAPHQL_ENDPOINT } from '../../constants/i
 
 const html = htm.bind(h);
 
-function App() {
-  return html`
-    <div>
-      <h1>Preact header component</h1>
-      <p>This is a description text</p>
-    </div>
-  `;
-}
+const performGraphqlRequest = async (featuredProducts) => {
+  // Construct the 'ids' part of the GraphQL query
+  const idsQueryPart = featuredProducts.map((id) => `"${id}"`).join(',');
 
-const performGraphqlRequest = async () => {
   const query = `
     {
-      products(first: 10) {
-        edges {
-          node {
-            id
-            title
+      nodes(ids: [${idsQueryPart}]) {
+        ... on Product {
+          id
+          title
+          featuredImage {
+            url
+            altText
+          }
+          priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
           }
         }
       }
@@ -49,7 +51,7 @@ const performGraphqlRequest = async () => {
   }
 
   const result = await response.json();
-  const products = result.data?.products?.edges;
+  const products = result.data?.nodes;
 
   return products;
 };
@@ -60,11 +62,14 @@ class ProductDetails extends Component {
 
     this.state = {
       products: [],
+      ids: props.productIds || [],
     };
   }
 
   async componentDidMount() {
-    const products = await performGraphqlRequest();
+    const featuredProducts = this.state.ids;
+
+    const products = await performGraphqlRequest(featuredProducts);
     this.setState({
       products,
     });
@@ -77,10 +82,14 @@ class ProductDetails extends Component {
   render() {
     return html`
       <${Fragment}>
-        <div class="product-details">
-          <h3>Product Details</h3>
+        <div class="product-grid">
           ${this.state.products.length > 0 && this.state.products.map((product) => html`
-            <div key=${product.node.id}>${product.node.title}</div>
+            <div class="product-item" key=${product.id}>
+              ${product.featuredImage && html`<img class="product-image" src=${product.featuredImage.url} alt=${product.featuredImage.altText} />`}
+              <h4 class="product-title">${product.title}</h4>
+              <p class="product-price">Price: ${product.priceRange.minVariantPrice.currencyCode} ${product.priceRange.minVariantPrice.amount}</p>
+              <button type="button" class="product-button">Add to cart</button>
+            </div>
           `)}
         </div>
       <//>
@@ -89,8 +98,8 @@ class ProductDetails extends Component {
 }
 
 export default function decorate(block) {
-  const app2 = html`<${App}/>`;
-  const productDetails = html`<${ProductDetails} />`;
-  // render(app2, block.parentElement);
-  // render(productDetails, block);
+  const productIdsText = block.querySelector('p')?.innerText;
+  const productIds = productIdsText.split(',');
+  const productDetails = html`<${ProductDetails} productIds=${productIds}/>`;
+  render(productDetails, block);
 }
