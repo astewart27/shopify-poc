@@ -16,7 +16,7 @@ a {
     text-decoration: none;
 }
 
-.product-list {
+.cmp-product-list {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     max-width: 1200px;
     margin: 0 auto;
@@ -30,6 +30,7 @@ a {
     box-shadow: 0 2px 7px #dfdfdf;
     background: #fafafa;
 }
+
 
 .badge {
     position: absolute;

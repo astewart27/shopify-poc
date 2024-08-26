@@ -82,7 +82,7 @@ class ProductDetails extends Component {
   render() {
     return html`
       <${Fragment}>
-        <div class="product-grid">
+        <div class="product-grid featured">
           ${this.state.products.length > 0 && this.state.products.map((product) => html`
             <div class="product-item" key=${product.id}>
               ${product.featuredImage && html`<img class="product-image" src=${product.featuredImage.url} alt=${product.featuredImage.altText} />`}

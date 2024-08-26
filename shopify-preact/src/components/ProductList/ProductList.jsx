@@ -53,7 +53,7 @@ const shopifyRequest = async () => {
 };
 
 const getShopifyId = (textId) => {
-  return "/products/" + textId.replace('gid://shopify/Product/', '')
+  return "/products/product/" + textId.replace('gid://shopify/Product/', '')
 }
 
 
@@ -97,7 +97,7 @@ export default class ProductList extends Component {
         <div class="route-comp">
           <h1>Snowboards</h1>
           <div class="cards">
-            <div class="product-list">
+            <div class="cmp-product-list">
               {pList}
             </div>
           </div>
