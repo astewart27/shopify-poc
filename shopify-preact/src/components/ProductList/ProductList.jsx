@@ -53,7 +53,7 @@ const shopifyRequest = async () => {
 };
 
 const getShopifyId = (textId) => {
-  return "/store/product/" + textId.replace('gid://shopify/Product/', '')
+  return "/products/" + textId.replace('gid://shopify/Product/', '')
 }
 
 

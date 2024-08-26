@@ -75,9 +75,9 @@ class ProductDetails extends Component {
     });
   }
 
-  async componentDidUpdate() {
-    console.log('Component updated...', this);
-  }
+  // async componentDidUpdate() {
+  //   console.log('Component updated...', this);
+  // }
 
   render() {
     return html`

@@ -6,8 +6,8 @@ export function App() {
   return (
     <LocationProvider>
       <Router>
-        <ProductList path="/store" />
-        <ProductDetail path="/store/product/:id" />
+        <ProductList path="/products" />
+        <ProductDetail path="/products/:id" />
       </Router>
     </LocationProvider>
   )

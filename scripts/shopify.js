@@ -1,5 +1,5 @@
-import { createStorefrontApiClient } from "@shopify/storefront-api-client";
-import { PUBLIC_STORE_DOMAIN, PUBLIC_STOREFRONT_API_TOKEN } from "../constants/index.js";
+import { createStorefrontApiClient } from '@shopify/storefront-api-client';
+import { PUBLIC_STORE_DOMAIN, PUBLIC_STOREFRONT_API_TOKEN } from '../constants/index.js';
 
 const setupStorefrontApiClient = () => {
   const client = createStorefrontApiClient({
