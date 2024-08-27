@@ -2,3 +2,6 @@ helix-importer-ui
 scripts/preact.js
 scripts/htm.js
 shopify-preact
+webpack.config.js
+scripts/product-list.js
+dist

@@ -1,5 +1,4 @@
-import { Component, Fragment } from 'preact'
-import './ProductList.css'
+import { Component, Fragment } from 'preact';
 
 /* Constants */
 const PUBLIC_STOREFRONT_API_TOKEN = '0f3a32c356f27e7ab24a28674bc60492';
@@ -48,7 +47,6 @@ const shopifyRequest = async () => {
 
   const result = await response.json();
   const products = result.data?.products?.edges;
-  console.log('products', products);
   return products;
 };
 
@@ -87,9 +85,7 @@ export default class ProductList extends Component {
             </div>
           </div>
         </div>
-
       </div>
-
     ));
 
     return (

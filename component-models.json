@@ -247,5 +247,17 @@
         "multi": true
       }
     ]
+  },
+  {
+    "id": "testblock",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "testBlock",
+        "value": "",
+        "label": "Test Block"
+      }
+    ]
   }
 ]
