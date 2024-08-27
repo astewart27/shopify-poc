@@ -13,6 +13,7 @@ module.exports = [
     experiments: {
       outputModule: true,  // Enable module output
     },
+    devtool: false,
     mode: 'development',
     module: {
       rules: [

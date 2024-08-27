@@ -1,3 +1,5 @@
+import { shopifyClient } from '../../scripts/shopify.js';
+
 export default function decorate(block) {
-  console.log('block', block);
+  console.log('shopifyClient', shopifyClient);
 }
