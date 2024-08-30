@@ -273,3 +273,34 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+header nav .nav-tools ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  gap: 24px;
+}
+
+header nav .nav-tools ul li {
+  height: 24px;
+}
+
+header nav .nav-tools .cart-link {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+}
+
+header nav .nav-tools .cart-quantity {
+  font-size: 1rem;
+}
+
+header nav .nav-tools .icon-cart img {
+  height: 30px;
+  width: 30px;
+}

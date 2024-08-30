@@ -129,6 +129,13 @@ export default async function decorate(block) {
     });
   }
 
+  const navTools = nav.querySelector('.nav-tools');
+  const cartLink = navTools?.querySelector('.icon-cart')?.parentElement;
+  cartLink.classList.add('cart-link');
+  const cartQuantityEl = document.createElement('div');
+  cartQuantityEl.classList.add('cart-quantity');
+  cartLink.prepend(cartQuantityEl);
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');

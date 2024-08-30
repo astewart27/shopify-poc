@@ -155,6 +155,37 @@ function setup() {
   }
 }
 
+function waitForElement(selector) {
+  return new Promise(resolve => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+
+    const observer = new MutationObserver(() => {
+      if (document.querySelector(selector)) {
+        observer.disconnect();
+        resolve(document.querySelector(selector));
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  });
+}
+
+/**
+ * Checks to see if the cart exists in localStorage then updates cart quantity in header
+ */
+const updateCartQuantity = async () => {
+  const cartInfo = JSON.parse(localStorage.getItem('eds-shopify-cart') ?? '{}');
+  if (Object.keys(cartInfo).length) {
+    const quantityEl = await waitForElement('.cart-quantity');
+    quantityEl.innerHTML = `(${cartInfo.lines.edges.length})`;
+  }
+};
+
 /**
  * Auto initializiation.
  */
@@ -163,6 +194,10 @@ function init() {
   setup();
   sampleRUM('top');
 
+  ['load', 'localStorage'].forEach((event) => {
+    window.addEventListener(event, updateCartQuantity);
+  });
+  window.addEventListener
   window.addEventListener('load', () => sampleRUM('load'));
 
   ['error', 'unhandledrejection'].forEach((event) => {
@@ -779,4 +814,5 @@ export {
   updateSectionsStatus,
   waitForLCP,
   wrapTextNodes,
+  waitForElement,
 };

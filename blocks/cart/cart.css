@@ -1,0 +1,20 @@
+.cmp-cart {
+  display: block;
+}
+
+.cmp-cart__item {
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cmp-cart__item-image {
+  width: 200px;
+  height: 200px;
+}
+
+.cmp-cart__item-title {
+  font-size: 24px;
+  font-weight: 500;
+}
