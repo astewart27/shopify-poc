@@ -1,4 +1,4 @@
-import { PUBLIC_STOREFRONT_API_TOKEN, GRAPHQL_ENDPOINT } from "../constants/index.js";
+import { PUBLIC_STOREFRONT_API_TOKEN, GRAPHQL_ENDPOINT } from '../constants/index.js';
 
 const getFeaturedProductsQuery = (featuredProducts) => {
   const idsQueryPart = featuredProducts.map((id) => `"${id}"`).join(',');
@@ -160,8 +160,7 @@ const getUpdateCartMutationQuery = (lines) => {
   return null;
 };
 
-export const performGraphqlRequest = async (type, data) => {
-
+export default async function performGraphqlRequest(type, data) {
   if (!data) return;
 
   let query = '';
@@ -193,10 +192,11 @@ export const performGraphqlRequest = async (type, data) => {
   const result = await response.json();
   if (type === 'featuredProducts') {
     return result.data.nodes;
-  } else if (type === 'createCart') {
+  }
+  if (type === 'createCart') {
     return result.data.cartCreate.cart;
-  } else if (type === 'updateCart') {
+  }
+  if (type === 'updateCart') {
     return result.data.cartLinesAdd.cart;
   }
-  return result.data;
-};
+}

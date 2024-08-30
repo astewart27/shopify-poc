@@ -156,9 +156,10 @@ function setup() {
 }
 
 function waitForElement(selector) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (document.querySelector(selector)) {
-      return resolve(document.querySelector(selector));
+      resolve(document.querySelector(selector));
+      return;
     }
 
     const observer = new MutationObserver(() => {
@@ -170,7 +171,7 @@ function waitForElement(selector) {
 
     observer.observe(document.body, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
   });
 }
@@ -197,7 +198,6 @@ function init() {
   ['load', 'localStorage'].forEach((event) => {
     window.addEventListener(event, updateCartQuantity);
   });
-  window.addEventListener
   window.addEventListener('load', () => sampleRUM('load'));
 
   ['error', 'unhandledrejection'].forEach((event) => {

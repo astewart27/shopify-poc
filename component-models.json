@@ -249,14 +249,14 @@
     ]
   },
   {
-    "id": "testblock",
+    "id": "shopping-cart",
     "fields": [
       {
         "component": "text",
         "valueType": "string",
-        "name": "testBlock",
+        "name": "header",
         "value": "",
-        "label": "Test Block"
+        "label": "Header"
       }
     ]
   }

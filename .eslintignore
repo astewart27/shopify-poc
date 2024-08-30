@@ -5,3 +5,4 @@ shopify-preact
 webpack.config.js
 scripts/product-list.js
 dist
+scripts/storefront-api-client.min.js

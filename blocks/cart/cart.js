@@ -4,7 +4,6 @@ import {
 } from '../../scripts/preact.js';
 // eslint-disable-next-line import/no-unresolved,import/extensions
 import htm from '../../scripts/htm.js';
-import { performGraphqlRequest } from '../../scripts/utils.js';
 
 const html = htm.bind(h);
 
@@ -13,7 +12,7 @@ class Cart extends Component {
     super(props);
 
     this.state = {
-      cartItems: []
+      cartItems: [],
     };
   }
 

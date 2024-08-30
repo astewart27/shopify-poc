@@ -22,5 +22,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
     'no-param-reassign': [2, { props: false }], // allow modifying properties of param
     'no-unused-vars': 'off',
+    'consistent-return': 'off',
+    'selector-class-pattern': 'off',
   },
 };

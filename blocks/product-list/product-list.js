@@ -4,7 +4,7 @@ import {
 } from '../../scripts/preact.js';
 // eslint-disable-next-line import/no-unresolved,import/extensions
 import htm from '../../scripts/htm.js';
-import { performGraphqlRequest } from '../../scripts/utils.js';
+import performGraphqlRequest from '../../scripts/utils.js';
 
 const html = htm.bind(h);
 
@@ -15,7 +15,7 @@ class ProductDetails extends Component {
     this.state = {
       products: [],
       ids: props.productIds || [],
-      variants: []
+      variants: [],
     };
   }
 
@@ -28,8 +28,8 @@ class ProductDetails extends Component {
   }
 
   async handleAddToCart(variant) {
-    this.setState(prev => ({
-      variants: [...prev.variants, variant.id]
+    this.setState((prev) => ({
+      variants: [...prev.variants, variant.id],
     }), async () => {
       const variantsState = structuredClone(this.state.variants);
       const variantId = variantsState.pop();
@@ -38,7 +38,7 @@ class ProductDetails extends Component {
       const result = await performGraphqlRequest(cartActionType, variantId);
       if (result) {
         localStorage.setItem('eds-shopify-cart', JSON.stringify(result));
-        window.dispatchEvent(new StorageEvent("localStorage"));
+        window.dispatchEvent(new StorageEvent('localStorage'));
       }
     });
   }
