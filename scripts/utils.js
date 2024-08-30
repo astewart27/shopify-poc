@@ -55,7 +55,9 @@ const getCreateCartMutationQuery = (lines) => {
                 merchandise {
                   ... on ProductVariant {
                     id
-                    displayName
+                    product {
+                      title
+                    }
                     price {
                       amount
                       currencyCode
@@ -114,7 +116,9 @@ const getUpdateCartMutationQuery = (lines) => {
                     merchandise {
                       ... on ProductVariant {
                         id
-                        displayName
+                        product {
+                          title
+                        }
                         price {
                           amount
                           currencyCode
